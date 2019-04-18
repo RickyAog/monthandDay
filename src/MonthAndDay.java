@@ -8,10 +8,9 @@ public class MonthAndDay {
    if(birthMonth(keyboard))
        System.out.println("What day were you born (Sunday-Saturday");
    System.out.println(birthDay(keyboard));
-   System.out.println("What is the year you were born");
+   System.out.println("What is the year you were born (last 2 digits");
    System.out.println(yearBorn(keyboard));
-
-   loop = !loop;
+   System.out.println(dateBorn(keyboard));
     }
 
 
@@ -152,16 +151,21 @@ default:
     public static boolean yearBorn(Scanner keyboard){
     int year = keyboard.nextInt();
     switch(year){
-        case 2000:
+        case 00:
             System.out.println("2000");
-        case 2001:
+            break;
+        case 01:
             System.out.println("2001");
-        case 2002:
+            break;
+        case 02:
             System.out.println("2002");
-        case 2003:
+            break;
+        case 03:
             System.out.println("2003");
-        case 2004:
+            break;
+        case 04:
             System.out.println("2004");
+            break;
         default:
             System.out.println("You were born before 2000");
 
@@ -170,6 +174,40 @@ default:
 
     }
     return false;
+    }
+    public static boolean dateBorn(Scanner Keyboard){
+        double weekdayBorn = birthDay(Keyboard)+birthMonth(Keyboard)+yearBorn(Keyboard)/7;;
+        if (weekdayBorn <1){
+            System.out.println("You were born on a Sunday" +
+            " The poem says 'But the child born on the Sabbath Day,Is fair and wise and good in every way'");
+        }
+        else if (weekdayBorn <2){
+            System.out.println("You were born on a Monday" +
+            " The poem says 'Monday's child is fair of face'" );
+        }
+        else if(weekdayBorn<3){
+            System.out.println("You were born on a Tuesday" +
+                    " The poem says 'Tuesday's child is full of grace' ");
+        }
+        else if(weekdayBorn<4){
+            System.out.println("You were born on a Wednesday" +
+                    " The poem says 'Wednesday's child is full of woe'");
+        }
+        else if(weekdayBorn<5){
+            System.out.println("You were born on a Thursday" +
+                    " The poem says 'Thursday's child has far to go'");
+        }
+        else if(weekdayBorn<6){
+            System.out.println("You were born on a Friday" +
+                    " The poem says'Friday's child is loving and giving'");
+        }
+        else if(weekdayBorn<7){
+            System.out.println("You were born on a Saturday" +
+                    " The poem Says 'Saturday's child works hard for a living'");
+        }
+
+
+       return false;
     }
 
 }
