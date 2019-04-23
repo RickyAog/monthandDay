@@ -6,7 +6,6 @@ public class MonthAndDay {
     boolean loop = true;
     while(loop){
    if(birthMonth(keyboard))
-       System.out.println("What day were you born (Sunday-Saturday");
    System.out.println(birthDay(keyboard));
    System.out.println("What is the year you were born (last 2 digits");
    System.out.println(yearBorn(keyboard));
@@ -17,7 +16,7 @@ public class MonthAndDay {
 
 
     }
-    public static boolean birthMonth(Scanner keyboard){
+    public static int birthMonth(Scanner keyboard){
         System.out.println("There is an old  nursery rhyme");
         System.out.println("Monday's child is fair of face,\n" +
                 "Tuesday's child is full of grace,\n" +
@@ -70,10 +69,10 @@ public class MonthAndDay {
 System.out.println("Wow I had no idea there was that many months in 1 year");
 
         }
-        return false;
+        return month+1;
 
     }
-    public static boolean birthDay(Scanner keyboard){
+    public static int birthDay(Scanner keyboard){
         System.out.println("I would like to know what day you were born");
     int day = keyboard.nextInt();
         switch(day){
@@ -146,9 +145,9 @@ default:
     System.out.println("That is not a real day");
         }
 
-        return false;
+        return day+13;
     }
-    public static boolean yearBorn(Scanner keyboard){
+    public static int yearBorn(Scanner keyboard){
     int year = keyboard.nextInt();
     switch(year){
         case 00:
@@ -173,10 +172,10 @@ default:
 
 
     }
-    return false;
+    return year%100;
     }
     public static boolean dateBorn(Scanner Keyboard){
-        double weekdayBorn = birthDay(Keyboard)+birthMonth(Keyboard)+yearBorn(Keyboard)/7;;
+        double weekdayBorn = yearBorn(Keyboard)%100;
         if (weekdayBorn <1){
             System.out.println("You were born on a Sunday" +
             " The poem says 'But the child born on the Sabbath Day,Is fair and wise and good in every way'");
@@ -207,7 +206,7 @@ default:
         }
 
 
-       return false;
+       return true;
     }
 
 }
