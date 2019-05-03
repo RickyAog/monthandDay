@@ -3,79 +3,58 @@ import java.util.Scanner;
 public class MonthAndDay {
     public static void main(String[] args) {
     Scanner keyboard= new Scanner(System.in);
+
     boolean loop = true;
     while(loop){
-   if(birthMonth(keyboard))
-   System.out.println(birthDay(keyboard));
-   System.out.println("What is the year you were born (last 2 digits");
-   System.out.println(yearBorn(keyboard));
-   System.out.println(dateBorn(keyboard));
+   if(loop)
+
+
+        System.out.println(h(keyboard));
     }
-
-
-
-
     }
     public static int birthMonth(Scanner keyboard){
-        System.out.println("There is an old  nursery rhyme");
-        System.out.println("Monday's child is fair of face,\n" +
-                "Tuesday's child is full of grace,\n" +
-                "Wednesday's child is full of woe,\n" +
-                "Thursday's child has far to go.\n" +
-                "Friday's child is loving and giving,\n" +
-                "Saturday's child works hard for a living,\n" +
-                "But the child born on the Sabbath Day,\n" +
-                "Is fair and wise and good in every way.");
         System.out.println("What month were you born (enter as a number please)");
-        int month = keyboard.nextInt();
-        switch(month){
+        int birthMonth = keyboard.nextInt();
+        switch(birthMonth){
             case 1:
-                System.out.println("So you were born in January");
                 break;
             case 2:
-                System.out.println("So you were born in February");
                 break;
             case 3:
-                System.out.println("So you were born in March");
                 break;
             case 4:
-                System.out.println("So you were born in April");
                 break;
             case 5:
-                System.out.println("So you were born in May");
                 break;
             case 6:
-                System.out.println("So you were born in June");
                 break;
             case 7:
-                System.out.println("So you were born in July");
                 break;
             case 8:
-                System.out.println("So you were born in August");
                 break;
             case 9:
-                System.out.println("So you were born in September");
                 break;
             case 10:
-                System.out.println("So you were born in October");
                 break;
             case 11:
-                System.out.println("So you were born in November");
                 break;
             case 12:
-                System.out.println("So you were born in December");
                 break;
                 default:
+                    if(birthMonth == 1){
+                        birthMonth = 13;
+                    }
+                    if(birthMonth == 2){
+                        birthMonth =14;
+                    }
 System.out.println("Wow I had no idea there was that many months in 1 year");
-
         }
-        return month+1;
-
+        return birthMonth;
     }
     public static int birthDay(Scanner keyboard){
         System.out.println("I would like to know what day you were born");
-    int day = keyboard.nextInt();
-        switch(day){
+    int birthDay = keyboard.nextInt();
+        switch(birthDay){
             case 1:
                 break;
             case 2:
@@ -138,75 +117,78 @@ System.out.println("Wow I had no idea there was that many months in 1 year");
                 break;
             case 31:
                 break;
-
-
-
 default:
     System.out.println("That is not a real day");
         }
-
-        return day+13;
+        return birthDay;
     }
     public static int yearBorn(Scanner keyboard){
-    int year = keyboard.nextInt();
-    switch(year){
-        case 00:
-            System.out.println("2000");
+    System.out.println("What year were you born");
+        int yearBorn = keyboard.nextInt();
+    switch(yearBorn){
+        case 2000:
             break;
-        case 01:
-            System.out.println("2001");
+        case 2001:
             break;
-        case 02:
-            System.out.println("2002");
+        case 2002:
             break;
-        case 03:
-            System.out.println("2003");
+        case 2003:
             break;
-        case 04:
-            System.out.println("2004");
+        case 2004:
             break;
-        default:
-            System.out.println("You were born before 2000");
-
-
-
+        case 2005:
+            break;
+        case 2006:
+            break;
 
     }
-    return year%100;
+    return yearBorn;
     }
-    public static boolean dateBorn(Scanner Keyboard){
-        double weekdayBorn = yearBorn(Keyboard)%100;
-        if (weekdayBorn <1){
+    public static boolean h (Scanner Keyboard){
+        System.out.println("There is an old  nursery rhyme");
+        System.out.println("Monday's child is fair of face,\n" +
+                "Tuesday's child is full of grace,\n" +
+                "Wednesday's child is full of woe,\n" +
+                "Thursday's child has far to go.\n" +
+                "Friday's child is loving and giving,\n" +
+                "Saturday's child works hard for a living,\n" +
+                "But the child born on the Sabbath Day,\n" +
+                "Is fair and wise and good in every way.");
+        int q = birthDay (Keyboard);
+        int m = birthMonth(Keyboard);
+        int k = yearBorn(Keyboard)%100;
+        int j = yearBorn(Keyboard)/100;
+        int h = (q + 13*(m + 1) / 5 + k + k / 4 + j / 4 + 5 * j)%7;
+
+        if (h ==1){
             System.out.println("You were born on a Sunday" +
             " The poem says 'But the child born on the Sabbath Day,Is fair and wise and good in every way'");
         }
-        else if (weekdayBorn <2){
+        else if (h == 2){
             System.out.println("You were born on a Monday" +
             " The poem says 'Monday's child is fair of face'" );
         }
-        else if(weekdayBorn<3){
+        else if(h == 3){
             System.out.println("You were born on a Tuesday" +
                     " The poem says 'Tuesday's child is full of grace' ");
         }
-        else if(weekdayBorn<4){
+        else if(h == 4){
             System.out.println("You were born on a Wednesday" +
                     " The poem says 'Wednesday's child is full of woe'");
         }
-        else if(weekdayBorn<5){
+        else if(h == 5){
             System.out.println("You were born on a Thursday" +
                     " The poem says 'Thursday's child has far to go'");
         }
-        else if(weekdayBorn<6){
+        else if(h == 6){
             System.out.println("You were born on a Friday" +
                     " The poem says'Friday's child is loving and giving'");
         }
-        else if(weekdayBorn<7){
+        else if(h == 0){
             System.out.println("You were born on a Saturday" +
                     " The poem Says 'Saturday's child works hard for a living'");
         }
 
-
-       return true;
+       return h(Keyboard);
     }
-
 }
